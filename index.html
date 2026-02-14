@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload File ke Link Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📤 File to Link</h1>
+            <p class="subtitle">Upload file dan dapatkan link download instan</p>
+        </header>
+
+        <!-- Upload Area -->
+        <div class="upload-card">
+            <div class="upload-area" id="uploadArea">
+                <input type="file" id="fileInput" hidden>
+                <div class="upload-content">
+                    <div class="upload-icon">📁</div>
+                    <h3>Drag & Drop File</h3>
+                    <p>atau</p>
+                    <button class="browse-btn" id="browseBtn">Pilih File</button>
+                    <p class="file-limit">Maksimal 50MB</p>
+                </div>
+            </div>
+
+            <!-- File Info -->
+            <div class="file-info" id="fileInfo" style="display: none;">
+                <div class="file-detail">
+                    <span class="file-icon">📄</span>
+                    <div class="file-detail-text">
+                        <p class="file-name" id="fileName"></p>
+                        <p class="file-size" id="fileSize"></p>
+                    </div>
+                    <button class="remove-file" id="removeFile">✕</button>
+                </div>
+            </div>
+
+            <!-- Upload Button -->
+            <button class="upload-btn" id="uploadBtn" disabled>
+                <span>Upload File</span>
+                <span class="btn-icon">⬆️</span>
+            </button>
+        </div>
+
+        <!-- Result Card -->
+        <div class="result-card" id="resultCard" style="display: none;">
+            <h3>✅ Upload Berhasil!</h3>
+            <p class="result-subtitle">Link file Anda (berlaku 24 jam):</p>
+            
+            <div class="link-container">
+                <input type="text" id="fileLink" readonly value="https://example.com/file/abc123">
+                <button class="copy-btn" id="copyBtn">
+                    <span class="copy-icon">📋</span>
+                    <span class="copy-text">Copy</span>
+                </button>
+            </div>
+
+            <div class="file-preview">
+                <div class="preview-icon" id="previewIcon">📄</div>
+                <div class="preview-info">
+                    <p class="preview-name" id="previewName"></p>
+                    <p class="preview-size" id="previewSize"></p>
+                </div>
+                <a href="#" class="download-link" id="downloadLink" target="_blank">Download</a>
+            </div>
+
+            <button class="new-upload-btn" id="newUploadBtn">Upload File Baru</button>
+        </div>
+
+        <!-- My Files Section -->
+        <div class="my-files">
+            <h3>📋 File Saya <span class="file-count" id="fileCount">0</span></h3>
+            <div class="files-list" id="filesList">
+                <!-- Files will be listed here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+        <div class="loading-spinner"></div>
+        <p>Mengupload file...</p>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">Link berhasil disalin!</div>
+
+    <script src="script.js"></script>
+</body>
+              </html>
